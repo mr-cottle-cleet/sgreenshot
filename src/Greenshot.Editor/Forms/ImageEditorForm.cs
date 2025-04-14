@@ -1683,6 +1683,15 @@ namespace Greenshot.Editor.Forms
         /// <param name="e"></param>
         private void EnlargeCanvasToolStripMenuItemClick(object sender, EventArgs e)
         {
+            /*
+                TODO:
+                    change this part to
+                    1. get the current canvas size
+                    2. get the full content size and position (including unseen parts)
+                    3. check if the content is larger than the canvas
+                        3.1 if yes, calculate the needed enlargement to make the content fit the canvas and apply the enlargement
+                        3.2 if no, enlarge by number of pixels specified in the settings
+            */
             _surface.ApplyBitmapEffect(new ResizeCanvasEffect(25, 25, 25, 25));
             UpdateUndoRedoSurfaceDependencies();
         }
