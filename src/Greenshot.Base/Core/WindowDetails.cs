@@ -43,10 +43,9 @@ namespace Greenshot.Base.Core
         private const string AppWindowClass = "Windows.UI.Core.CoreWindow"; //Used for Windows 8(.1)
         private const string AppFrameWindowClass = "ApplicationFrameWindow"; // Windows 10 uses ApplicationFrameWindow
 
-        private static readonly IList<string> IgnoreClasses = new List<string>(new[]
-        {
+        private static readonly IList<string> IgnoreClasses = new List<string>([
             "Progman", "Button", "Dwm"
-        }); //"MS-SDIa"
+        ]); //"MS-SDIa"
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(WindowDetails));
         private static readonly CoreConfiguration Conf = IniConfig.GetIniSection<CoreConfiguration>();
@@ -145,7 +144,7 @@ namespace Greenshot.Base.Core
         /// <summary>
         /// Check if the window has children
         /// </summary>
-        public bool HasChildren => (_childWindows != null) && (_childWindows.Count > 0);
+        public bool HasChildren => _childWindows is { Count: > 0 };
 
         /// <summary>
         /// Freeze information updates
@@ -1047,7 +1046,7 @@ namespace Greenshot.Base.Core
         /// </summary>
         /// <param name="rect">NativeRect</param>
         /// <returns>bool true if hidden</returns>
-        private bool IsHidden(NativeRect rect) => rect.Width == 65535 && rect.Height == 65535 && rect.Left == 32767 && rect.Top == 32767;
+        private bool IsHidden(NativeRect rect) => rect is { Width: 65535, Height: 65535, Left: 32767, Top: 32767 };
 
         /// <summary>
         /// Helper method to get the window size for DWM Windows

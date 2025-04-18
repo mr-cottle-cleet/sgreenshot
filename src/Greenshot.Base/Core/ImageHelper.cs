@@ -869,29 +869,23 @@ namespace Greenshot.Base.Core
         public static Bitmap CreateNegative(Image sourceImage)
         {
             Bitmap clone = (Bitmap) Clone(sourceImage);
-            ColorMatrix invertMatrix = new ColorMatrix(new[]
-            {
-                new float[]
-                {
+            ColorMatrix invertMatrix = new ColorMatrix([
+                [
                     -1, 0, 0, 0, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, -1, 0, 0, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, -1, 0, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, 0, 1, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     1, 1, 1, 1, 1
-                }
-            });
+                ]
+            ]);
             ApplyColorMatrix(clone, invertMatrix);
             return clone;
         }
@@ -1039,29 +1033,23 @@ namespace Greenshot.Base.Core
         {
             float adjustedBrightness = brightness - 1.0f;
             ColorMatrix applyColorMatrix = new ColorMatrix(
-                new[]
-                {
-                    new[]
-                    {
-                        contrast, 0, 0, 0, 0
-                    }, // scale red
-                    new[]
-                    {
-                        0, contrast, 0, 0, 0
-                    }, // scale green
-                    new[]
-                    {
-                        0, 0, contrast, 0, 0
-                    }, // scale blue
-                    new[]
-                    {
-                        0, 0, 0, 1.0f, 0
-                    }, // don't scale alpha
-                    new[]
-                    {
-                        adjustedBrightness, adjustedBrightness, adjustedBrightness, 0, 1
-                    }
-                });
+            [
+                [
+                    contrast, 0, 0, 0, 0
+                ], // scale red
+                [
+                    0, contrast, 0, 0, 0
+                ], // scale green
+                [
+                    0, 0, contrast, 0, 0
+                ], // scale blue
+                [
+                    0, 0, 0, 1.0f, 0
+                ], // don't scale alpha
+                [
+                    adjustedBrightness, adjustedBrightness, adjustedBrightness, 0, 1
+                ]
+            ]);
 
             //create some image attributes
             ImageAttributes attributes = new ImageAttributes();
@@ -1102,29 +1090,23 @@ namespace Greenshot.Base.Core
         public static Image CreateGrayscale(Image sourceImage)
         {
             Bitmap clone = (Bitmap) Clone(sourceImage);
-            ColorMatrix grayscaleMatrix = new ColorMatrix(new[]
-            {
-                new[]
-                {
+            ColorMatrix grayscaleMatrix = new ColorMatrix([
+                [
                     .3f, .3f, .3f, 0, 0
-                },
-                new[]
-                {
+                ],
+                [
                     .59f, .59f, .59f, 0, 0
-                },
-                new[]
-                {
+                ],
+                [
                     .11f, .11f, .11f, 0, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, 0, 1, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, 0, 0, 1
-                }
-            });
+                ]
+            ]);
             ApplyColorMatrix(clone, grayscaleMatrix);
             return clone;
         }

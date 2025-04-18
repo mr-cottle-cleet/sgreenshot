@@ -394,9 +394,9 @@ namespace Greenshot.Editor.Drawing
         public override void Transform(Matrix matrix)
         {
             Point[] points =
-            {
+            [
                 TargetAdorner.Location
-            };
+            ];
             matrix.TransformPoints(points);
             TargetAdorner.Location = points[0];
             base.Transform(matrix);

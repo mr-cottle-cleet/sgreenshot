@@ -19,7 +19,7 @@ namespace Greenshot.Base.Core
             var typeOfService = typeof(TService);
             if (!_services.TryGetValue(typeOfService, out var results))
             {
-                return Array.Empty<TService>();
+                return [];
             }
 
             return results.Cast<TService>().ToArray();

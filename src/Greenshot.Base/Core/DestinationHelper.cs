@@ -90,7 +90,7 @@ namespace Greenshot.Base.Core
         public static ExportInformation ExportCapture(bool manuallyInitiated, string designation, ISurface surface, ICaptureDetails captureDetails)
         {
             IDestination destination = GetDestination(designation);
-            if (destination != null && destination.IsActive)
+            if (destination is { IsActive: true })
             {
                 return destination.ExportCapture(manuallyInitiated, surface, captureDetails);
             }

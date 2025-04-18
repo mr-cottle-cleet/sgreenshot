@@ -416,7 +416,7 @@ EndSelection:<<<<<<<4
                 }
             }
 
-            return Enumerable.Empty<FileDescriptor>();
+            return [];
         }
 
         /// <summary>
@@ -686,19 +686,19 @@ EndSelection:<<<<<<<4
             {
                 // Outlook ??
                 Log.Info("Most likely the current clipboard contents come from Outlook, as this has a problem with PNG and others we place the DIB format to the front...");
-                retrieveFormats = new[]
-                {
+                retrieveFormats =
+                [
                     DataFormats.Dib, FORMAT_BITMAP, FORMAT_FILECONTENTS, FORMAT_PNG_OFFICEART, FORMAT_PNG, FORMAT_JFIF_OFFICEART, FORMAT_JPG, FORMAT_JPEG, FORMAT_JFIF,
                     DataFormats.Tiff, FORMAT_GIF, FORMAT_HTML
-                };
+                ];
             }
             else
             {
-                retrieveFormats = new[]
-                {
+                retrieveFormats =
+                [
                     FORMAT_PNG_OFFICEART, FORMAT_PNG, FORMAT_17, FORMAT_JFIF_OFFICEART, FORMAT_JPG, FORMAT_JPEG, FORMAT_JFIF, DataFormats.Tiff, DataFormats.Dib, FORMAT_BITMAP,
                     FORMAT_FILECONTENTS, FORMAT_GIF, FORMAT_HTML
-                };
+                ];
             }
 
             foreach (string currentFormat in retrieveFormats)
@@ -741,19 +741,19 @@ EndSelection:<<<<<<<4
             {
                 // Outlook ??
                 Log.Info("Most likely the current clipboard contents come from Outlook, as this has a problem with PNG and others we place the DIB format to the front...");
-                retrieveFormats = new[]
-                {
+                retrieveFormats =
+                [
                     DataFormats.Dib, FORMAT_BITMAP, FORMAT_FILECONTENTS, FORMAT_PNG_OFFICEART, FORMAT_PNG, FORMAT_JFIF_OFFICEART, FORMAT_JPG, FORMAT_JPEG, FORMAT_JFIF,
                     DataFormats.Tiff, FORMAT_GIF, FORMAT_HTML
-                };
+                ];
             }
             else
             {
-                retrieveFormats = new[]
-                {
+                retrieveFormats =
+                [
                     FORMAT_PNG_OFFICEART, FORMAT_PNG, FORMAT_17, FORMAT_JFIF_OFFICEART, FORMAT_JPG, FORMAT_JPEG, FORMAT_JFIF, DataFormats.Tiff, DataFormats.Dib, FORMAT_BITMAP,
                     FORMAT_FILECONTENTS, FORMAT_GIF, FORMAT_HTML
-                };
+                ];
             }
 
             foreach (string currentFormat in retrieveFormats)
@@ -1183,10 +1183,10 @@ EndSelection:<<<<<<<4
             if (formats != null)
             {
                 Log.DebugFormat("Got clipboard formats: {0}", string.Join(",", formats));
-                return new List<string>(formats);
+                return [..formats];
             }
 
-            return new List<string>();
+            return [];
         }
 
         /// <summary>
@@ -1197,10 +1197,9 @@ EndSelection:<<<<<<<4
         /// <returns>true if one the format is found</returns>
         public static bool ContainsFormat(IDataObject dataObject, string format)
         {
-            return ContainsFormat(dataObject, new[]
-            {
+            return ContainsFormat(dataObject, [
                 format
-            });
+            ]);
         }
 
         /// <summary>
@@ -1264,7 +1263,7 @@ EndSelection:<<<<<<<4
         public static IEnumerable<string> GetImageFilenames(IDataObject dataObject)
         {
             string[] dropFileNames = (string[])dataObject.GetData(DataFormats.FileDrop);
-            if (dropFileNames is not { Length: > 0 }) return Enumerable.Empty<string>();
+            if (dropFileNames is not { Length: > 0 }) return [];
             var fileFormatHandlers = SimpleServiceProvider.Current.GetAllInstances<IFileFormatHandler>();
 
             var supportedExtensions = fileFormatHandlers.ExtensionsFor(FileFormatHandlerActions.LoadFromStream).ToList();

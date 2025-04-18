@@ -79,7 +79,7 @@ namespace Greenshot.Destinations
         {
             PrinterSettings settings = new PrinterSettings();
             string defaultPrinter = settings.PrinterName;
-            List<string> printers = new List<string>();
+            List<string> printers = [];
 
             foreach (string printer in PrinterSettings.InstalledPrinters)
             {

@@ -43,7 +43,7 @@ namespace Greenshot.Editor.FileFormatHandlers
         private const double DpiToPelsPerMeter = 39.3701;
         private static readonly ILog Log = LogManager.GetLogger(typeof(DibFileFormatHandler));
 
-        private readonly IReadOnlyCollection<string> _ourExtensions = new[] { ".dib", ".format17", ".deviceindependentbitmap" };
+        private readonly IReadOnlyCollection<string> _ourExtensions = [".dib", ".format17", ".deviceindependentbitmap"];
 
         public DibFileFormatHandler()
         {

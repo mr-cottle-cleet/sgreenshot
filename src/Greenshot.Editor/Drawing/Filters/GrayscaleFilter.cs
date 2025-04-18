@@ -56,29 +56,23 @@ namespace Greenshot.Editor.Drawing.Filters
                 graphics.ExcludeClip(rect);
             }
 
-            ColorMatrix grayscaleMatrix = new ColorMatrix(new[]
-            {
-                new[]
-                {
+            ColorMatrix grayscaleMatrix = new ColorMatrix([
+                [
                     .3f, .3f, .3f, 0, 0
-                },
-                new[]
-                {
+                ],
+                [
                     .59f, .59f, .59f, 0, 0
-                },
-                new[]
-                {
+                ],
+                [
                     .11f, .11f, .11f, 0, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, 0, 1, 0
-                },
-                new float[]
-                {
+                ],
+                [
                     0, 0, 0, 0, 1
-                }
-            });
+                ]
+            ]);
             using (ImageAttributes ia = new ImageAttributes())
             {
                 ia.SetColorMatrix(grayscaleMatrix);

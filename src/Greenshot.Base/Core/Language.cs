@@ -39,7 +39,7 @@ namespace Greenshot.Base.Core
     public class Language
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(Language));
-        private static readonly List<string> LanguagePaths = new();
+        private static readonly List<string> LanguagePaths = [];
         private static readonly Dictionary<string, List<LanguageFile>> LanguageFiles = new();
         private static readonly Dictionary<string, string> HelpFiles = new();
         private const string DefaultLanguage = "en-US";
@@ -48,7 +48,7 @@ namespace Greenshot.Base.Core
         private static readonly Regex PrefixRegexp = new(@"language_([a-zA-Z0-9]+).*");
         private static readonly Regex IetfRegexp = new(@"^.*([a-zA-Z]{2,3}-([a-zA-Z]{1,2})|[a-zA-Z]{2,3}-x-[a-zA-Z]+)$");
         private const string LanguageGroupsKey = @"SYSTEM\CurrentControlSet\Control\Nls\Language Groups";
-        private static readonly List<string> UnsupportedLanguageGroups = new();
+        private static readonly List<string> UnsupportedLanguageGroups = [];
         private static readonly Dictionary<string, string> Resources = new();
         private static string _currentLanguage;
 
@@ -465,10 +465,7 @@ namespace Greenshot.Base.Core
                         }
                         else
                         {
-                            currentFiles = new List<LanguageFile>
-                            {
-                                languageFile
-                            };
+                            currentFiles = [languageFile];
                             LanguageFiles.Add(languageFile.Ietf, currentFiles);
                             Log.DebugFormat("Added language definition {0} from: {1}", languageFile.Description, languageFile.Filepath);
                         }

@@ -222,7 +222,7 @@ namespace Greenshot.Base.Core
                         // r<old string>,<new string>
                         case "r":
                             string[] replaceParameters = parameter.Substring(1).Split(',');
-                            if (replaceParameters != null && replaceParameters.Length == 2)
+                            if (replaceParameters is { Length: 2 })
                             {
                                 replacements.Add(replaceParameters[0], replaceParameters[1]);
                             }

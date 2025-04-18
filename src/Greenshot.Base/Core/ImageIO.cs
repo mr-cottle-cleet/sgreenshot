@@ -63,9 +63,9 @@ namespace Greenshot.Base.Core
             PropertyItem propertyItem = null;
             try
             {
-                ConstructorInfo ci = typeof(PropertyItem).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public, null, new Type[]
-                {
-                }, null);
+                ConstructorInfo ci = typeof(PropertyItem).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public, null,
+                [
+                ], null);
                 propertyItem = (PropertyItem) ci.Invoke(null);
                 // Make sure it's of type string
                 propertyItem.Type = 2;
@@ -182,7 +182,7 @@ namespace Greenshot.Base.Core
             }
 
             Image tmpImage;
-            if (outputSettings.Effects != null && outputSettings.Effects.Count > 0)
+            if (outputSettings.Effects is { Count: > 0 })
             {
                 // apply effects, if there are any
                 using (Matrix matrix = new Matrix())

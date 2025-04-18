@@ -84,7 +84,7 @@ namespace Greenshot.Base.Core
             Regex r = new Regex(@"(?<start>\{)+(?<property>[\w\.\[\]]+)(?<format>:[^}]+)?(?<end>\})+",
                 RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
 
-            List<object> values = new List<object>();
+            List<object> values = [];
             string rewrittenFormat = r.Replace(format, delegate(Match m)
             {
                 Group startGroup = m.Groups["start"];

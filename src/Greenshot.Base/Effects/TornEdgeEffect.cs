@@ -51,10 +51,10 @@ namespace Greenshot.Base.Effects
             ToothHeight = 12;
             HorizontalToothRange = 20;
             VerticalToothRange = 20;
-            Edges = new[]
-            {
+            Edges =
+            [
                 true, true, true, true
-            };
+            ];
             GenerateShadow = true;
         }
 

@@ -38,7 +38,7 @@ namespace Greenshot.Editor.FileFormatHandlers
     public class SvgFileFormatHandler : AbstractFileFormatHandler, IFileFormatHandler
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(SvgFileFormatHandler));
-        private readonly IReadOnlyCollection<string> _ourExtensions = new[] { ".svg" };
+        private readonly IReadOnlyCollection<string> _ourExtensions = [".svg"];
 
         public SvgFileFormatHandler()
         {

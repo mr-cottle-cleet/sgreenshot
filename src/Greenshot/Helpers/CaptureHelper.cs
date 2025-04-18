@@ -54,7 +54,7 @@ namespace Greenshot.Helpers
 
         private static readonly CoreConfiguration CoreConfig = IniConfig.GetIniSection<CoreConfiguration>();
         
-        private List<WindowDetails> _windows = new();
+        private List<WindowDetails> _windows = [];
         private WindowDetails _selectedCaptureWindow;
         private NativeRect _captureRect = NativeRect.Empty;
         private readonly bool _captureMouseCursor;
@@ -562,7 +562,7 @@ namespace Greenshot.Helpers
         /// </summary>
         private Thread PrepareForCaptureWithFeedback()
         {
-            _windows = new List<WindowDetails>();
+            _windows = [];
 
             Thread getWindowDetailsThread = new Thread(RetrieveWindowDetails)
             {
@@ -840,7 +840,7 @@ namespace Greenshot.Helpers
                 return false;
             }
 
-            if (!presupplied && _selectedCaptureWindow != null && _selectedCaptureWindow.Iconic)
+            if (!presupplied && _selectedCaptureWindow is { Iconic: true })
             {
                 // Restore the window making sure it's visible!
                 // This is done mainly for a screen capture, but some applications like Excel and TOAD have weird behaviour!
@@ -1205,7 +1205,7 @@ namespace Greenshot.Helpers
                 _capture.CaptureDetails.Title = _selectedCaptureWindow.Text;
             }
 
-            if (_captureRect.Height > 0 && _captureRect.Width > 0)
+            if (_captureRect is { Height: > 0, Width: > 0 })
             {
                 // Take the captureRect, this already is specified as bitmap coordinates
                 _capture.Crop(_captureRect);

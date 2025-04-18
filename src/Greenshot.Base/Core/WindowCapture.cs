@@ -337,7 +337,7 @@ namespace Greenshot.Base.Core
                     try
                     {
                         // Collect all screens inside this capture
-                        List<Screen> screensInsideCapture = new List<Screen>();
+                        List<Screen> screensInsideCapture = [];
                         foreach (Screen screen in Screen.AllScreens)
                         {
                             if (screen.Bounds.IntersectsWith(captureBounds))

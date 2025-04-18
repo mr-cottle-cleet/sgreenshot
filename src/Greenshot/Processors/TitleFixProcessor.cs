@@ -38,7 +38,7 @@ namespace Greenshot.Processors
 
         public TitleFixProcessor()
         {
-            List<string> corruptKeys = new List<string>();
+            List<string> corruptKeys = [];
             foreach (string key in config.ActiveTitleFixes)
             {
                 if (config.TitleFixMatcher.ContainsKey(key)) continue;

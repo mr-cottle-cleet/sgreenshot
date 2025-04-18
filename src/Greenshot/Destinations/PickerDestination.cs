@@ -48,7 +48,7 @@ namespace Greenshot.Destinations
         /// <returns>true if export was made</returns>
         public override ExportInformation ExportCapture(bool manuallyInitiated, ISurface surface, ICaptureDetails captureDetails)
         {
-            List<IDestination> destinations = new List<IDestination>();
+            List<IDestination> destinations = [];
 
             foreach (var destination in SimpleServiceProvider.Current.GetAllInstances<IDestination>())
             {

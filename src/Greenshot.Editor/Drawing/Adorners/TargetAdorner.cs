@@ -105,10 +105,10 @@ namespace Greenshot.Editor.Drawing.Adorners
                 return;
             }
 
-            Point[] points = new Point[]
-            {
+            Point[] points =
+            [
                 Location
-            };
+            ];
             matrix.TransformPoints(points);
             Location = points[0];
         }

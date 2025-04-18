@@ -1041,8 +1041,8 @@ namespace Greenshot.Forms
             }
 
             var now = DateTime.Now;
-            if ((now.Month == 12 && now.Day > 19 && now.Day < 27) || // christmas
-                (now.Month == 3 && now.Day > 13 && now.Day < 21))
+            if (now is { Month: 12, Day: > 19 and < 27 } || // christmas
+                now is { Month: 3, Day: > 13 and < 21 })
             {
                 // birthday
                 var resources = new ComponentResourceManager(typeof(MainForm));
@@ -1849,7 +1849,7 @@ namespace Greenshot.Forms
             LOG.Info("Exit: " + EnvironmentInfo.EnvironmentToString(false));
 
             // Close all open forms (except this), use a separate List to make sure we don't get a "InvalidOperationException: Collection was modified"
-            List<Form> formsToClose = new List<Form>();
+            List<Form> formsToClose = [];
             foreach (Form form in Application.OpenForms)
             {
                 if (form.Handle != Handle && form.GetType() != typeof(ImageEditorForm))

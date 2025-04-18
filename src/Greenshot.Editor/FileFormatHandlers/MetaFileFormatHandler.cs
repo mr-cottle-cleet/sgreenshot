@@ -36,7 +36,7 @@ namespace Greenshot.Editor.FileFormatHandlers
     /// </summary>
     public class MetaFileFormatHandler : AbstractFileFormatHandler, IFileFormatHandler
     {
-        private readonly IReadOnlyCollection<string> _ourExtensions = new[] { ".wmf", ".emf" };
+        private readonly IReadOnlyCollection<string> _ourExtensions = [".wmf", ".emf"];
         
         public MetaFileFormatHandler()
         {

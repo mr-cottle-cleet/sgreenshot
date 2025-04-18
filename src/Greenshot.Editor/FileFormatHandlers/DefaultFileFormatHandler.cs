@@ -38,7 +38,8 @@ namespace Greenshot.Editor.FileFormatHandlers
     public class DefaultFileFormatHandler : AbstractFileFormatHandler, IFileFormatHandler
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(DefaultFileFormatHandler));
-        private readonly IReadOnlyCollection<string> _ourExtensions = new[] { ".png", ".bmp", ".gif", ".jpg", ".jpeg", ".tiff", ".tif" };
+        private readonly IReadOnlyCollection<string> _ourExtensions = [".png", ".bmp", ".gif", ".jpg", ".jpeg", ".tiff", ".tif"
+        ];
         public DefaultFileFormatHandler()
         {
             SupportedExtensions[FileFormatHandlerActions.LoadDrawableFromStream] = _ourExtensions;

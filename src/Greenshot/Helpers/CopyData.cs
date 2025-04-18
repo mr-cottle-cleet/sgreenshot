@@ -50,7 +50,7 @@ namespace Greenshot.Helpers
 
         public CopyDataTransport()
         {
-            _commands = new List<KeyValuePair<CommandEnum, string>>();
+            _commands = [];
         }
 
         public CopyDataTransport(CommandEnum command) : this()

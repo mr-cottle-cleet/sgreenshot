@@ -248,10 +248,9 @@ namespace Greenshot.Plugin.Win10.Destinations
                     dataPackage.Properties.Thumbnail = thumbnailRandomAccessStreamReference;
                     dataPackage.Properties.Square30x30Logo = logoRandomAccessStreamReference;
                     dataPackage.Properties.LogoBackgroundColor = Color.FromArgb(0xff, 0x3d, 0x3d, 0x3d);
-                    dataPackage.SetStorageItems(new[]
-                    {
+                    dataPackage.SetStorageItems([
                         storageFile
-                    });
+                    ]);
                     dataPackage.SetBitmap(imageRandomAccessStreamReference);
                 }
                 finally

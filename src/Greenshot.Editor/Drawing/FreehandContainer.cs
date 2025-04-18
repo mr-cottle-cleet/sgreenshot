@@ -39,16 +39,16 @@ namespace Greenshot.Editor.Drawing
     public class FreehandContainer : DrawableContainer
     {
         private static readonly float[] PointOffset =
-        {
+        [
             0.5f, 0.25f, 0.75f
-        };
+        ];
 
         [NonSerialized]
         private GraphicsPath freehandPath = new GraphicsPath();
 
         private Rectangle myBounds = NativeRect.Empty;
         private Point lastMouse = NativePoint.Empty;
-        private List<Point> capturePoints = new List<Point>();
+        private List<Point> capturePoints = [];
         private bool isRecalculated;
 
         /// <summary>
@@ -247,10 +247,10 @@ namespace Greenshot.Editor.Drawing
             selectionPen.Color = Color.FromArgb(120, Color.LightSeaGreen);
             graphics.DrawPath(selectionPen, selectionPath);
             selectionPath.Widen(selectionPen);
-            selectionPen.DashPattern = new float[]
-            {
+            selectionPen.DashPattern =
+            [
                 2, 2
-            };
+            ];
             selectionPen.Color = Color.LightSeaGreen;
             selectionPen.Width = 1;
             graphics.DrawPath(selectionPen, selectionPath);

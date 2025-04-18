@@ -242,7 +242,7 @@ namespace Greenshot.Editor.Drawing
         /// <summary>
         /// all stepLabels for the surface, needed with serialization
         /// </summary>
-        private readonly List<StepLabelContainer> _stepLabels = new List<StepLabelContainer>();
+        private readonly List<StepLabelContainer> _stepLabels = [];
 
         public void AddStepLabel(StepLabelContainer stepLabel)
         {
@@ -578,12 +578,12 @@ namespace Greenshot.Editor.Drawing
                 }
 
                 // Cleanup undo/redo stacks
-                while (_undoStack != null && _undoStack.Count > 0)
+                while (_undoStack is { Count: > 0 })
                 {
                     _undoStack.Pop().Dispose();
                 }
 
-                while (_redoStack != null && _redoStack.Count > 0)
+                while (_redoStack is { Count: > 0 })
                 {
                     _redoStack.Pop().Dispose();
                 }
@@ -1124,7 +1124,7 @@ namespace Greenshot.Editor.Drawing
             }
 
             //condition for all other crop modes
-            if (cropRectangle.Height > 0 && cropRectangle.Width > 0)
+            if (cropRectangle is { Height: > 0, Width: > 0 })
             {
                 return true;
             }
@@ -1445,7 +1445,7 @@ namespace Greenshot.Editor.Drawing
             if (e.Button == MouseButtons.Right)
             {
                 IDrawableContainerList selectedList = null;
-                if (selectedElements != null && selectedElements.Count > 0)
+                if (selectedElements is { Count: > 0 })
                 {
                     selectedList = selectedElements;
                 }
@@ -1462,7 +1462,7 @@ namespace Greenshot.Editor.Drawing
                     }
                 }
 
-                if (selectedList != null && selectedList.Count > 0)
+                if (selectedList is { Count: > 0 })
                 {
                     selectedList.ShowContextMenu(e, this);
                 }
@@ -1763,7 +1763,7 @@ namespace Greenshot.Editor.Drawing
 
             // Correction to prevent rounding errors at certain zoom levels.
             // When zooming to N/M, clip rectangle top and left coordinates should be multiples of N.
-            if (_zoomFactor.Numerator > 1 && _zoomFactor.Denominator > 1)
+            if (_zoomFactor is { Numerator: > 1, Denominator: > 1 })
             {
                 int horizontalCorrection = targetClipRectangle.Left % (int) _zoomFactor.Numerator;
                 int verticalCorrection = targetClipRectangle.Top % (int) _zoomFactor.Numerator;
@@ -2705,9 +2705,9 @@ namespace Greenshot.Editor.Drawing
         public NativePoint ToSurfaceCoordinates(NativePoint point)
         {
             Point[] points =
-            {
+            [
                 point
-            };
+            ];
             _zoomMatrix.TransformPoints(points);
             return points[0];
         }
@@ -2720,9 +2720,9 @@ namespace Greenshot.Editor.Drawing
             }
 
             Point[] points =
-            {
+            [
                 rc.Location, rc.Location.Offset(rc.Size.Width, rc.Size.Height)
-            };
+            ];
             _zoomMatrix.TransformPoints(points);
             return new NativeRect(
                 points[0].X,
@@ -2735,9 +2735,9 @@ namespace Greenshot.Editor.Drawing
         public NativePoint ToImageCoordinates(NativePoint point)
         {
             Point[] points =
-            {
+            [
                 point
-            };
+            ];
             _inverseZoomMatrix.TransformPoints(points);
             return points[0];
         }
@@ -2750,9 +2750,9 @@ namespace Greenshot.Editor.Drawing
             }
 
             Point[] points =
-            {
+            [
                 rc.Location, rc.Location.Offset(rc.Size.Width, rc.Size.Height)
-            };
+            ];
             _inverseZoomMatrix.TransformPoints(points);
             return new NativeRect(
                 points[0].X,

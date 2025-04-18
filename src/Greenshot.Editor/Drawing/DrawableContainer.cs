@@ -116,7 +116,7 @@ namespace Greenshot.Editor.Drawing
         {
             get
             {
-                List<IFilter> ret = new List<IFilter>();
+                List<IFilter> ret = [];
                 foreach (IFieldHolder c in Children)
                 {
                     if (c is IFilter)
@@ -472,10 +472,10 @@ namespace Greenshot.Editor.Drawing
         {
             using Pen pen = new Pen(Color.MediumSeaGreen)
             {
-                DashPattern = new float[]
-                {
+                DashPattern =
+                [
                     1, 2
-                },
+                ],
                 Width = 1
             };
             g.DrawRectangle(pen, rect);
@@ -655,10 +655,10 @@ namespace Greenshot.Editor.Drawing
 
             Point topLeft = new Point(Left, Top);
             Point bottomRight = new Point(Left + Width, Top + Height);
-            Point[] points = new[]
-            {
+            Point[] points =
+            [
                 topLeft, bottomRight
-            };
+            ];
             matrix.TransformPoints(points);
 
             Left = points[0].X;

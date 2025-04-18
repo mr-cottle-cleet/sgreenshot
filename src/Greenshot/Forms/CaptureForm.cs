@@ -422,7 +422,7 @@ namespace Greenshot.Forms
                 // Go and process the capture
                 DialogResult = DialogResult.OK;
             }
-            else if (_captureRect.Height > 0 && _captureRect.Width > 0)
+            else if (_captureRect is { Height: > 0, Width: > 0 })
             {
                 // correct the GUI width to real width if Region mode
                 if (_captureMode is CaptureMode.Region or CaptureMode.Text)

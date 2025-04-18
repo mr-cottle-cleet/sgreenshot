@@ -131,7 +131,7 @@ namespace Greenshot.Base.Core.FileFormatHandlers
                 return loadfileFormatHandler.LoadDrawablesFromStream(stream, extension, parentSurface);
             }
 
-            return Enumerable.Empty<IDrawableContainer>();
+            return [];
         }
 
         /// <summary>

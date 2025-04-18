@@ -131,7 +131,7 @@ namespace Greenshot.Helpers
         /// </summary>
         public MapiMailMessage()
         {
-            Files = new List<string>();
+            Files = [];
             Recipients = new RecipientCollection();
             _manualResetEvent = new ManualResetEvent(false);
         }

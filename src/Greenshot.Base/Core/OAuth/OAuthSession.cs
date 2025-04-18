@@ -490,7 +490,7 @@ namespace Greenshot.Base.Core.OAuth
                     Token = null;
                     TokenSecret = null;
                     // Remove oauth keys, so they aren't added double
-                    List<string> keysToDelete = new List<string>();
+                    List<string> keysToDelete = [];
                     foreach (string parameterKey in parametersToSign.Keys)
                     {
                         if (parameterKey.StartsWith(OAUTH_PARAMETER_PREFIX))

@@ -185,7 +185,7 @@ namespace Greenshot.Editor.Drawing
         public override void Invalidate()
         {
             base.Invalidate();
-            if (_textBox != null && _textBox.Visible)
+            if (_textBox is { Visible: true })
             {
                 _textBox.Invalidate();
             }
@@ -322,7 +322,7 @@ namespace Greenshot.Editor.Drawing
             }
 
             Color lc = GetFieldValueAsColor(FieldType.LINE_COLOR);
-            if (lc.R > 203 && lc.G > 203 && lc.B > 203)
+            if (lc is { R: > 203, G: > 203, B: > 203 })
             {
                 _textBox.BackColor = Color.FromArgb(51, 51, 51);
             }

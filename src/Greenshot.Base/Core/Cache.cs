@@ -83,7 +83,7 @@ namespace Greenshot.Base.Core
         {
             get
             {
-                List<TV> elements = new List<TV>();
+                List<TV> elements = [];
 
                 lock (_lockObject)
                 {

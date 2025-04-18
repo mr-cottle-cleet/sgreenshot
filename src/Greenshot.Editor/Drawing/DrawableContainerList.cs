@@ -77,7 +77,7 @@ namespace Greenshot.Editor.Drawing
 
         public List<IDrawableContainer> AsIDrawableContainerList()
         {
-            List<IDrawableContainer> interfaceList = new List<IDrawableContainer>();
+            List<IDrawableContainer> interfaceList = [];
             foreach (IDrawableContainer container in this)
             {
                 interfaceList.Add(container);

@@ -38,7 +38,7 @@ namespace Greenshot.Editor.FileFormatHandlers
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(IconFileFormatHandler));
 
-        private readonly IReadOnlyCollection<string> _ourExtensions = new[] { ".ico" };
+        private readonly IReadOnlyCollection<string> _ourExtensions = [".ico"];
 
         public IconFileFormatHandler()
         {

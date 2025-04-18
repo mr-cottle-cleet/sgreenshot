@@ -137,7 +137,7 @@ namespace Greenshot.Editor.Drawing.Fields
         public new bool HasFieldValue(IFieldType fieldType)
         {
             IField f = GetField(fieldType);
-            return f != null && f.HasValue;
+            return f is { HasValue: true };
         }
 
         public new void SetFieldValue(IFieldType fieldType, object value)

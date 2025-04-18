@@ -61,10 +61,10 @@ namespace Greenshot.Editor.Forms
             _effect.ToothHeight = (int) toothsize.Value;
             _effect.VerticalToothRange = (int) verticaltoothrange.Value;
             _effect.HorizontalToothRange = (int) horizontaltoothrange.Value;
-            _effect.Edges = new[]
-            {
+            _effect.Edges =
+            [
                 top.Checked, right.Checked, bottom.Checked, left.Checked
-            };
+            ];
             _effect.GenerateShadow = shadowCheckbox.Checked;
             DialogResult = DialogResult.OK;
         }

@@ -44,9 +44,9 @@ namespace Greenshot.Forms
         private static readonly ILog Log = LogManager.GetLogger(typeof(AboutForm));
         private Bitmap _bitmap;
         private readonly ColorAnimator _backgroundAnimation;
-        private readonly List<RectangleAnimator> _pixels = new();
-        private readonly List<Color> _colorFlow = new();
-        private readonly List<Color> _pixelColors = new();
+        private readonly List<RectangleAnimator> _pixels = [];
+        private readonly List<Color> _colorFlow = [];
+        private readonly List<Color> _pixelColors = [];
         private readonly Random _rand = new();
         private readonly Color _backColor = Color.FromArgb(61, 61, 61);
         private readonly Color _pixelColor = Color.FromArgb(138, 255, 0);
@@ -70,9 +70,8 @@ namespace Greenshot.Forms
         /// <summary>
         /// The location of every dot in the "G"
         /// </summary>
-        private readonly List<NativePoint> _gSpots = new List<NativePoint>
-        {
-            // Top row
+        private readonly List<NativePoint> _gSpots =
+        [
             new(P2, P1), // 0
             new(P3, P1), // 1
             new(P4, P1), // 2
@@ -106,8 +105,8 @@ namespace Greenshot.Forms
             new(P3, P6), // 20
             new(P4, P6), // 21
             new(P5, P6), // 22
-            new(P6, P6) // 23
-        };
+            new(P6, P6)
+        ];
 
         //     0  1  2  3  4
         //  5  6
@@ -117,7 +116,8 @@ namespace Greenshot.Forms
         // 18 19 20 21 22 23
 
         // The order in which we draw the dots & flow the colors.
-        private readonly List<int> _flowOrder = new() { 4, 3, 2, 1, 0, 5, 6, 7, 8, 9, 10, 14, 15, 18, 19, 20, 21, 22, 23, 16, 17, 13, 12, 11 };
+        private readonly List<int> _flowOrder =
+            [4, 3, 2, 1, 0, 5, 6, 7, 8, 9, 10, 14, 15, 18, 19, 20, 21, 22, 23, 16, 17, 13, 12, 11];
 
         /// <summary>
         /// Cleanup all the allocated resources

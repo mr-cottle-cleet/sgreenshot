@@ -77,7 +77,7 @@ namespace Greenshot.Base.Interfaces.Plugin
 
         public bool SaveBackgroundOnly { get; set; }
 
-        public List<IEffect> Effects { get; } = new List<IEffect>();
+        public List<IEffect> Effects { get; } = [];
 
         public bool ReduceColors
         {

@@ -168,7 +168,7 @@ namespace Greenshot.Base.IniFile
                     iniValue.SetValueFromProperties(properties);
                     if (iniValue.Attributes.Encrypted)
                     {
-                        if (iniValue.Value is string stringValue && stringValue.Length > 2)
+                        if (iniValue.Value is string { Length: > 2 } stringValue)
                         {
                             iniValue.Value = stringValue.Decrypt();
                         }
@@ -209,7 +209,7 @@ namespace Greenshot.Base.IniFile
                 {
                     if (value.Attributes.Encrypted)
                     {
-                        if (value.Value is string stringValue && stringValue.Length > 2)
+                        if (value.Value is string { Length: > 2 } stringValue)
                         {
                             value.Value = stringValue.Encrypt();
                         }
@@ -219,7 +219,7 @@ namespace Greenshot.Base.IniFile
                     value.Write(writer, onlyProperties);
                     if (value.Attributes.Encrypted)
                     {
-                        if (value.Value is string stringValue && stringValue.Length > 2)
+                        if (value.Value is string { Length: > 2 } stringValue)
                         {
                             value.Value = stringValue.Decrypt();
                         }

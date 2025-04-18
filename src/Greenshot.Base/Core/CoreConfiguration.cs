@@ -68,11 +68,11 @@ namespace Greenshot.Base.Core
         [IniProperty("Destinations", Separator = ",",
             Description = "Which destinations? Possible options (more might be added by plugins) are: Editor, FileDefault, FileWithDialog, Clipboard, Printer, EMail, Picker",
             DefaultValue = "Picker")]
-        public List<string> OutputDestinations { get; set; } = new List<string>();
+        public List<string> OutputDestinations { get; set; } = [];
 
         [IniProperty("ClipboardFormats", Separator = ",", Description = "Specify which formats we copy on the clipboard? Options are: PNG, HTML, HTMLDATAURL and DIB",
             DefaultValue = "PNG,DIB")]
-        public List<ClipboardFormat> ClipboardFormats { get; set; } = new List<ClipboardFormat>();
+        public List<ClipboardFormat> ClipboardFormats { get; set; } = [];
 
         [IniProperty("CaptureMousepointer", Description = "Should the mouse be captured?", DefaultValue = "true")]
         public bool CaptureMousepointer { get; set; }
@@ -538,7 +538,7 @@ namespace Greenshot.Base.Core
 
             if (OutputDestinations == null)
             {
-                OutputDestinations = new List<string>();
+                OutputDestinations = [];
             }
 
             // Make sure there is an output!
@@ -556,12 +556,12 @@ namespace Greenshot.Base.Core
             // Make sure we have clipboard formats, otherwise a paste doesn't make sense!
             if (ClipboardFormats == null || ClipboardFormats.Count == 0)
             {
-                ClipboardFormats = new List<ClipboardFormat>
-                {
+                ClipboardFormats =
+                [
                     ClipboardFormat.PNG,
                     ClipboardFormat.HTML,
                     ClipboardFormat.DIB
-                };
+                ];
             }
 
             // Make sure the lists are lowercase, to speedup the check

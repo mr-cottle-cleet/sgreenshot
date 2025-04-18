@@ -111,7 +111,7 @@ namespace Greenshot.Base.Core
         /// <param name="surface"></param>
         public void ProcessExport(ExportInformation exportInformation, ISurface surface)
         {
-            if (exportInformation != null && exportInformation.ExportMade)
+            if (exportInformation is { ExportMade: true })
             {
                 if (!string.IsNullOrEmpty(exportInformation.Uri))
                 {
@@ -255,7 +255,7 @@ namespace Greenshot.Base.Core
                         menu.Tag = clickedDestination.Designation;
                         // Export
                         exportInformation = clickedDestination.ExportCapture(true, surface, captureDetails);
-                        if (exportInformation != null && exportInformation.ExportMade)
+                        if (exportInformation is { ExportMade: true })
                         {
                             Log.InfoFormat("Export to {0} success, closing menu", exportInformation.DestinationDescription);
                             // close menu if the destination wasn't the editor
@@ -374,7 +374,7 @@ namespace Greenshot.Base.Core
                 {
                     if (basisMenuItem.DropDownItems.Count == 0)
                     {
-                        List<IDestination> subDestinations = new List<IDestination>();
+                        List<IDestination> subDestinations = [];
                         // Fixing Bug #3536968 by catching the COMException (every exception) and not displaying the "subDestinations"
                         try
                         {

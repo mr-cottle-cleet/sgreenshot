@@ -228,7 +228,7 @@ namespace Greenshot.Base.Core
         /// <returns>Bitmap</returns>
         public Bitmap SimpleReindex()
         {
-            List<Color> colors = new List<Color>();
+            List<Color> colors = [];
             Dictionary<Color, byte> lookup = new Dictionary<Color, byte>();
             using (FastChunkyBitmap bbbDest = FastBitmap.Create(resultBitmap) as FastChunkyBitmap)
             {
@@ -677,17 +677,17 @@ namespace Greenshot.Base.Core
             int direction;
 
             int[] cutRed =
-            {
+            [
                 0
-            };
+            ];
             int[] cutGreen =
-            {
+            [
                 0
-            };
+            ];
             int[] cutBlue =
-            {
+            [
                 0
-            };
+            ];
 
             long wholeRed = Volume(first, momentsRed);
             long wholeGreen = Volume(first, momentsGreen);

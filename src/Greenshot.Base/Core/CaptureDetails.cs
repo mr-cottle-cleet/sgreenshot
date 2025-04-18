@@ -70,7 +70,7 @@ namespace Greenshot.Base.Core
         public CaptureMode CaptureMode { get; set; }
 
         /// <inheritdoc />
-        public List<IDestination> CaptureDestinations { get; set; } = new List<IDestination>();
+        public List<IDestination> CaptureDestinations { get; set; } = [];
 
         /// <inheritdoc />
         public void ClearDestinations()

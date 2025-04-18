@@ -54,8 +54,8 @@ namespace Greenshot.Editor.Forms
 
         public static ColorDialog GetInstance() => _instance;
 
-        private readonly List<Button> _colorButtons = new List<Button>();
-        private readonly List<Button> _recentColorButtons = new List<Button>();
+        private readonly List<Button> _colorButtons = [];
+        private readonly List<Button> _recentColorButtons = [];
         private readonly ToolTip _toolTip = new ToolTip();
         private bool _updateInProgress;
 

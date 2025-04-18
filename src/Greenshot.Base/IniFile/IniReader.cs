@@ -35,9 +35,9 @@ namespace Greenshot.Base.IniFile
         private const char CommentToken = ';';
 
         private static readonly char[] Assignment =
-        {
+        [
             '='
-        };
+        ];
 
         /// <summary>
         /// Read an ini file to a Dictionary, each key is a section and the value is a Dictionary with name and values.

@@ -84,7 +84,7 @@ namespace Greenshot.Editor.Configuration
         public override void AfterLoad()
         {
             base.AfterLoad();
-            RecentColors ??= new List<Color>();
+            RecentColors ??= [];
 
             if (FreehandSensitivity < 1)
             {

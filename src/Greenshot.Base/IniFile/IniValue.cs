@@ -250,10 +250,9 @@ namespace Greenshot.Base.IniFile
                 while ((bool) moveNext.Invoke(enumerator, null))
                 {
                     var key = current.Invoke(enumerator, null);
-                    var valueObject = item.GetValue(myValue, new[]
-                    {
+                    var valueObject = item.GetValue(myValue, [
                         key
-                    });
+                    ]);
                     // Write to ini file!
                     writer.WriteLine("{0}.{1}={2}", _attributes.Name, ConvertValueToString(valueType1, key, _attributes.Separator),
                         ConvertValueToString(valueType2, valueObject, _attributes.Separator));
@@ -356,10 +355,9 @@ namespace Greenshot.Base.IniFile
                             //LOG.Error("Problem converting " + stringValue + " to type " + type2.FullName, e);
                         }
 
-                        addMethodInfo.Invoke(dictionary, new[]
-                        {
+                        addMethodInfo.Invoke(dictionary, [
                             newValue1, newValue2
-                        });
+                        ]);
                         addedElements = true;
                     }
                 }
@@ -485,10 +483,9 @@ namespace Greenshot.Base.IniFile
                 string arraySeparator = separator;
                 object list = Activator.CreateInstance(valueType);
                 // Logic for List<>
-                string[] arrayValues = valueString.Split(new[]
-                {
+                string[] arrayValues = valueString.Split([
                     arraySeparator
-                }, StringSplitOptions.None);
+                ], StringSplitOptions.None);
                 if (arrayValues.Length == 0)
                 {
                     return list;
@@ -512,10 +509,9 @@ namespace Greenshot.Base.IniFile
 
                         if (newValue != null)
                         {
-                            addMethodInfo.Invoke(list, new[]
-                            {
+                            addMethodInfo.Invoke(list, [
                                 newValue
-                            });
+                            ]);
                         }
                     }
                 }
@@ -571,10 +567,9 @@ namespace Greenshot.Base.IniFile
                 // Loop though generic list
                 for (int index = 0; index < listCount; index++)
                 {
-                    object item = valueType.GetMethod("get_Item").Invoke(valueObject, new object[]
-                    {
+                    object item = valueType.GetMethod("get_Item").Invoke(valueObject, [
                         index
-                    });
+                    ]);
 
                     // Now you have an instance of the item in the generic list
                     if (index < listCount - 1)

@@ -70,7 +70,7 @@ namespace Greenshot.Base.Core
                 object[] res = GetAccessibleChildren(accessible, out var num);
                 if (res == null)
                 {
-                    return new Accessible[0];
+                    return [];
                 }
 
                 List<Accessible> list = new List<Accessible>(res.Length);
