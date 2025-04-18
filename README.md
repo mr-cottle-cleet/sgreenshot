@@ -1,7 +1,7 @@
 Greenshot - a free screenshot tool optimized for productivity
 =============================================================
 
-Welcome to a fortk repository for Greenshot
+This is a fork repository of Greenshot
 
 Where to find OG Greenshot?
 ------------------
