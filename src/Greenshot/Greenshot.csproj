@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.13.9" />
     <PackageReference Include="Tools.InnoSetup" version="6.2.1" GeneratePathProperty="true" />
+    <PackageReference Remove="MSBuildTasks" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,20 +35,13 @@
   <ItemGroup>
     <ProjectReference Include="..\Greenshot.Base\Greenshot.Base.csproj" />
     <ProjectReference Include="..\Greenshot.Editor\Greenshot.Editor.csproj" />
-    <FilesToHash Include="$(SolutionDir)$(SolutionName)\$(OutDir)\*" />
+    <!-- <FilesToHash Include="$(SolutionDir)$(SolutionName)\$(OutDir)\*" /> -->
   </ItemGroup>
 
   <ItemGroup>
     <None Update="log4net.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="MSBuildTasks" Version="1.5.0.235">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
   <UsingTask TaskName="SetEnvironmentVariableTask" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
 
@@ -65,12 +60,14 @@
     </Task>
   </UsingTask>
 
+  <!--
   <Target Name="Generate hashes" BeforeTargets="PostBuildEvent">
     <GetFileHash Files="@(FilesToHash)" Algorithm="SHA256" HashEncoding="hex">
       <Output TaskParameter="Items" ItemName="FilesWithHashes" />
     </GetFileHash>
     <WriteLinesToFile File="$(SolutionDir)$(SolutionName)\$(OutDir)\checksum.SHA256" Lines="@(FilesWithHashes->'%(Filename)%(Extension): %(FileHash)')" Overwrite="true" WriteOnlyWhenDifferent="true" />
   </Target>
+  -->
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
     <SetEnvironmentVariableTask Name="BuildVersionSimple" Value="$(BuildVersionSimple)" />

@@ -84,4 +84,13 @@
       <DependentUpon>ImageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.13.9" />
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.4" />
+    <PackageReference Update="MSBuildTasks" Version="1.5.0.235">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
