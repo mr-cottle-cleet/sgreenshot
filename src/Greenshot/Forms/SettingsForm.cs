@@ -823,6 +823,11 @@ namespace Greenshot.Forms
         {
             combobox_window_capture_mode.Enabled = radiobuttonWindowCapture.Checked;
         }
+
+        private int CalculateGroupBoxLocationPositionY(GreenshotGroupBox preceedingGroupBox)
+        {
+            return (preceedingGroupBox?.Location.Y??0)+(preceedingGroupBox?.Size.Height??0)+GroupBoxLocationYPadding;
+        }
     }
 
     public class ListviewWithDestinationComparer : IComparer
