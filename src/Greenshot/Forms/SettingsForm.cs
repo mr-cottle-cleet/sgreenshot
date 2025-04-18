@@ -120,7 +120,7 @@ namespace Greenshot.Forms
             int currentValue = (int) numericUpDown_daysbetweencheck.Value;
 
             // Check if we can into the forbidden range
-            if (currentValue > 0 && currentValue < 7)
+            if (currentValue is > 0 and < 7)
             {
                 if (_daysBetweenCheckPreviousValue <= currentValue)
                 {
@@ -233,17 +233,17 @@ namespace Greenshot.Forms
                     coreConfiguration.WindowCaptureMode = WindowCaptureMode.GDI;
                 }
 
-                availableModes = new[]
-                {
+                availableModes =
+                [
                     WindowCaptureMode.Auto, WindowCaptureMode.Screen, WindowCaptureMode.GDI
-                };
+                ];
             }
             else
             {
-                availableModes = new[]
-                {
+                availableModes =
+                [
                     WindowCaptureMode.Auto, WindowCaptureMode.Screen, WindowCaptureMode.GDI, WindowCaptureMode.Aero, WindowCaptureMode.AeroTransparent
-                };
+                ];
             }
 
             PopulateComboBox(combobox_window_capture_mode, availableModes, selectedWindowCaptureMode);
@@ -262,10 +262,10 @@ namespace Greenshot.Forms
             listview_plugins.Items.Clear();
             listview_plugins.Columns.Clear();
             string[] columns =
-            {
+            [
                 Language.GetString("settings_plugins_name"), Language.GetString("settings_plugins_version"), Language.GetString("settings_plugins_createdby"),
                 Language.GetString("settings_plugins_dllpath")
-            };
+            ];
             foreach (string column in columns)
             {
                 listview_plugins.Columns.Add(column);
@@ -569,7 +569,7 @@ namespace Greenshot.Forms
 
             coreConfiguration.OutputFileJpegQuality = trackBarJpegQuality.Value;
 
-            List<string> destinations = new List<string>();
+            List<string> destinations = [];
             if (checkbox_picker.Checked)
             {
                 destinations.Add(nameof(WellKnownDestinations.Picker));
@@ -743,7 +743,7 @@ namespace Greenshot.Forms
             foreach (int index in listview_destinations.CheckedIndices)
             {
                 ListViewItem item = listview_destinations.Items[index];
-                if (item.Tag is IDestination destinationFromTag && destinationFromTag.Designation.Equals(nameof(WellKnownDestinations.Clipboard)))
+                if (item.Tag is IDestination { Designation: nameof(WellKnownDestinations.Clipboard) })
                 {
                     clipboardDestinationChecked = true;
                     break;
